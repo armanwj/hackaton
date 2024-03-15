@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-        IMAGE_REPO_NAME="frontend_angular"
+        IMAGE_REPO_NAME="hackaton"
         IMAGE_TAG="v1"
         AWS_DEFAULT_REGION="us-east-1"
         AWS_ACCOUNT_ID="992382586240"
