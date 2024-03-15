@@ -17,8 +17,6 @@ pipeline {
     }
      stage("DEPLOY DOCKER") {
        steps {
-          
-//           sh """aws ecr get-login-password | docker login --username AWS --password-stdin ${REPOSITORY_URI}"""
           sh """docker login -u AWS -p $(aws ecr get-login-password --region ${AWS_DEFAULT_REGION}) ${REPOSITORY_URI}"""
           sh """docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}:$IMAGE_TAG"""
           sh """docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"""
