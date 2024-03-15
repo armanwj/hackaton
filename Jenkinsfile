@@ -24,7 +24,7 @@ pipeline {
    }
     stage("DEPLOY & ACTIVATE") {
       steps {
-        sh """aws ecs run-task --cluster Cluster --count 1 --launch-type FARGATE --task-definition frontend_angular --network-configuration "awsvpcConfiguration={subnets=[subnet-0e2677a0a337e894a
+        sh """aws ecs run-task --cluster test-cluster --count 1 --launch-type FARGATE --task-definition frontend_angular --network-configuration "awsvpcConfiguration={subnets=[subnet-0e2677a0a337e894a
 ],securityGroups=[sg-0f1f0f22dad4beb24],assignPublicIp=ENABLED}"
 """
       }
